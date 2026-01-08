@@ -3,38 +3,71 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Busy Board</title>
+        <title>BusyPico</title>
         <link rel="stylesheet" href="../css/styles.css">
     </head>
     <body>
         <header>
-            <h1>Busy Board</h1>
+            <h1>BusyPico</h1>
             <aside>A toy with lights and switches</aside>
         </header>
 
         <p>
         I am look to build a handheld, battery-powered game console based on the Raspberry Pi Pico 2. This will allow me to develop my understanding of electronics and programming.
         </p>
+        
         <p> 
-        <h2>The hardware is</h2>
-        <ul>
-            <li>The Raspberry Pi Pico microcontroller, which will handle the game logic and power management</li>
-            <li>A 2x9 LED display driven by a 74HC595 Shift Register. This allows me to control the 8 lights using only 3 Pico data pins</li>
-            <li>A rotatry potentiometer and a momentary button for player inputs</li>
-            <li>2x AAA batteries to power the device</li>
-        </ul>
-        </p>
-        <p> 
-        <h2>The software is</h2>
-        <ul>
-            <li>C (Pico SDK) for high performance</li>
-            <li>5 MHz SPI communication between the shift register and the Pico to ensure the LEDs update without lag.</li>
-            <li>PWN on the shift register to allow for smooth brightness control and battery saving</li>
-            <li>ADC voltage monitoring to inform the user of low power.</li>
-        </ul>
+        <h3>The steps taken will be</h3>
+        <ol>
+            <li>Prototype on breadboard<br>
+                Prototype on a BreadboardBefore soldering or mounting anything, you must verify the circuit. This is where you use the wiring we discussed earlier.
+                <ul>
+                    <li>The Goal: Ensure the Pico 2 talks to the 74HC595, the potentiometer dims the LEDs, and the button triggers an action.</li>
+                    <li>Check: Verify your 5 MHz SPI clock is stable and that the 2x AAA batteries power the system correctly.</li>
+                </ul></li>
+            <li>Prepare the Chassis<br>
+                Now you need a "home" for your console. You can use a 3D-printed case, a plastic project box, or even a sturdy piece of wood.
+                <ul>
+                    <li>Drilling: Measure and drill holes for the Potentiometer (usually $7\text{mm}$ or $9\text{mm}$), the Button, and a slot for the 8 LEDs.</li>
+                    <li>Mounting the Battery Holder: Use those M2/M2.5 flat-head screws we discussed to secure the battery tray inside or on the back of the case.</li>
+                </ul></li>
+            <li>Wiring and Soldering<br>
+                Once the components are mounted in the case, you'll replace the messy jumper wires with permanent connections.
+                <ul>
+                    <li>Point-to-Point: Solder wires from the Pico 2 to the 74HC595 and the controls.</li>
+                    <li>Power Rails: Create a "Power Bus" where the Battery (+), Pico VSYS, and 74HC595 VCC all meet.</li>
+                    <li>Resistors: Don't forget to solder your $220\Omega$ resistors between the 74HC595 outputs and each LED.</li>
+                </ul></li>
+            <li>Software Architecture (The "Game Engine")<br>
+                Instead of one long script, organize your C code into a structure that makes it easy to add new games.
+                <ul>
+                    <li>Drivers: Keep your SPI/Shift Register and ADC/PWM code in separate functions.</li>
+                    <li>The Main Loop: Create a "Menu" state where you can use the Potentiometer to scroll through games and the Button to select one.</li>
+                    <li>Battery Watchdog: Include your voltage monitoring code to blink a "Low Battery" LED if the voltage drops below $2.1\text{V}$.</li>
+                </ul></li>
+            <li>Game Development & Testing<br>
+                Now the fun part—coding the actual games!
+                <ul>
+                    <li>Calibrate the Pot: Ensure the full turn of the knob maps perfectly to all 8 LEDs.</li>
+                    <li>Refine the Feel: Adjust your software debouncing for the button so it feels "snappy" and responsive.</li>
+                </ul></li>
+              <li>Final Assembly and "Closing the Box"<br>
+                Now the fun part—coding the actual games!
+                <ul>
+                    <li>Insulation: Use heat-shrink tubing or electrical tape on any exposed solder joints so they don't short-circuit against each other inside the case.</li>
+                    <li>Strain Relief: Make sure the battery wires aren't being pulled tight when you close the lid.</li>
+                    <li>The "Smoke Test": Power it on one last time with the batteries before screwing the case shut.</li>
+                </ul></li>   
+        </ol>
         </p>
 
-        
+    </body>
+</html>
+
+
+
+
+
         
         <!--
         <h2>Seriously, it takes minimal fucking effort to improve this shit.</h2>
@@ -64,3 +97,4 @@
         <h2>Epilogue</h2><p>Inspired by the geniuses behind <a href="http://motherfuckingwebsite.com/">motherfuckingwebsite.com</a>
         -->
         
+
