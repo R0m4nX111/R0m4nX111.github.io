@@ -24,6 +24,15 @@ img {
 
 .inline {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    margin: 20px 0;
     gap: 20px;
+}
+
+.inline img {
+    flex-shrink: 0;
+}
+
+.inline-desc {
+    margin: 0;
 }
