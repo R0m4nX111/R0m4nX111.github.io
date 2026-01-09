@@ -36,3 +36,21 @@ img {
 .inline-desc {
     margin: 0;
 }
+
+table.compact {
+    font-size: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+table.compact th {
+    font-weight: bold;
+    text-align: center;
+}
+
+table.compact td {
+    font-weight: normal;
+    text-align: center;
+}

@@ -10,18 +10,25 @@
     <body>
         <header>
             <h1>Prototype</h1>
-            <aside>Get it working on the breadboard</aside>
         </header>
+
+        <h3>Batteries</h3>
+        <p>
+        The 2x AAA batteries are connected in series giving 3.0 V (2x 1.5 V) and a capacity of 1000 mAh. 
+        </p>
+        <p>
+        The Pico accepts 1.8 V to 5.5 V via the VSYS pin. The 74HC595 operates between 2.0 V and 6.0 V. The LEDs (red, orange and yellow) operate between 1.8 V and 2.2 V. All are within the capacity of the chosen batteries.
+        </p>
         
         <h3>Shift Register</h3>
         <p>
-        The 74HC595 is an 8-bit shift register(SR) driven by an SPI TX connection. The SPI (Serial Periphal Interface) works by pulsing (or not pulsing) the data pin synchronously with the clock pin to commuicate the desired byte into the register bit by bit. Once transfered the shift register assigns the HIGH or LOW voltage to the output pins. 
+        The 74HC595 is an 8-bit shift register (SR) driven by an SPI TX connection. The SPI (Serial Periphal Interface) works by pulsing (or not pulsing) the data pin synchronously with the clock pin to commuicate the desired byte into the register bit by bit. Once transfered the shift register assigns the HIGH or LOW voltage to the output pins. 
         </p>
 
         <figure class="inline">
-            <img src="74HC595-pin-out.jpg" style="border-radius: 10px; width: 200px;" alt="74HC595 Pin Out Diagram">
+            <img src="74HC595-pinout.jpg" style="border-radius: 10px; width: 200px;" alt="74HC595 Pin Out Diagram">
             <figcaption class="inline-desc">
-                74HC595 Pin Out Diagram
+                74HC595 Pin Out Diagram<br><br>
                 <strong>Q0 to Q7:</strong>Output Pins<br>
                 <strong>GND:</strong>Ground<br>
                 <strong>Q7':</strong>Serial Out<br>
@@ -35,15 +42,68 @@
         </figure>
 
         <p>
-        dsd
-
+        The serial out (Q7') is not required as it is used to "daisy chain" shift registers. 
         </p>
 
-        <h3>8x LEDs</h3>
+        <h3>Lights</h3>
+        <p>
+        8x LEDs are arranged in a 2x4 grid. The rows will be red, orange, yellow, green. Given the 3.3 V input voltage from the Pico the resistors will be per the table below.
+        <table class="compact">
+            <tr>
+                <th>Colour</th>
+                <th>Forward Voltage</th>
+                <th>Target Current</th>
+                <th>Resistor Value</th>
+            </tr>
+            <tr>
+                <td>Red</th>
+                <td>1.8 V</th>
+                <td>8 mA</th>
+                <td>180 &#8486</th>
+            </tr>
+            <tr>
+                <td>Orange</th>
+                <td>2.0 V</th>
+                <td>7 mA</th>
+                <td>180 &#8486</th>
+            </tr>
+            <tr>
+                <td>Yellow</th>
+                <td>2.1 V</th>
+                <td>8 mA</th>
+                <td>150 &#8486</th>
+            </tr>
+            <tr>
+                <td>Green</th>
+                <td>2.2 V</th>
+                <td>10 mA</th>
+                <td>100 &#8486</th>
+            </tr>
+        </table>
+        </p>
+        
+        <h3>Potentiometer</h3>
+        <h3>Button</h3>
+
+        <h3>Pico</h3>
+        <p>
+        The Raspberry Pi Pico is a microcontroller
+        </p>
+
+        <figure>
+            <img src="pico-pinout.svg" style="border-radius: 10px; width: 600px; margin-left: auto; margin-right: auto; display: block;" alt="Pico Pin Out Diagram">
+        </figure>
+
+        <p>
+        The serial out (Q7') is not required as it is used to "daisy chain" shift registers. 
+        </p>
 
 
 
         <footer>
+            <nav>
+            <a href="../index.html">Home</a> |
+            <a href="busypico.html">Back</a> |
             <a href="prototype.c">Prototype code</a>
         </footer>
     </body>
