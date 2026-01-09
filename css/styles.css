@@ -2,7 +2,7 @@ body{
     margin:40px auto;
     max-width:650px;
     line-height:1.2; 
-    font-size:18px;
+    font-size:14px;
     background-color:#eeeeee;
     padding:10px;
     font-family:sans-serif;
@@ -16,6 +16,8 @@ img {
 }
 
 .photo {
+    display: flex;
+    justify-content: center;
     width: 300px;
     border-radius: 10px;
 }
