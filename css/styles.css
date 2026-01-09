@@ -22,3 +22,8 @@ img {
     border-radius: 10px;
 }
 
+.inline {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
