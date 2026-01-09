@@ -14,26 +14,29 @@
         </header>
         
         <p>
-        The 74HC595 is an 8-bit shift register(SR) driven by the SPI TX connection to the Pico. The SPI (Serial Periphal Interface) works by pulsing (or not pulsing) the data pin synchronously with the clock pin to commuicate the desired 8 bits intp the register bit by bit. Once transfered the shift......... 
+        The 74HC595 is an 8-bit shift register(SR) driven by an SPI TX connection. The SPI (Serial Periphal Interface) works by pulsing (or not pulsing) the data pin synchronously with the clock pin to commuicate the desired byte into the register bit by bit. Once transfered the shift register assigns the HIGH or LOW voltage to the output pins. 
         </p>
 
         <figure>
-            <img src="74HC595-pin-out.jpg" class="photo" alt="74HC595 Pin Out Diagram">
+            <img src="74HC595-pin-out.jpg" style="border-radius: 10px; width: 100px;" alt="74HC595 Pin Out Diagram">
             <figcaption>74HC595 Pin Out Diagram</figcaption>
         </figure>
 
-        <details>
-            Pin outs are<br>
-            <strong>Q0 to Q7:</strong>Output Pins<br>
-            <strong>GND:</strong>Ground<br>
-            <strong>Q7':</strong>Serial Out<br>
-            <strong>MR:</strong>Master Clear, Active Low<br>
-            <strong>SH_CP:</strong>Shift Register Clock Pin<br>
-            <strong>ST_CP:</strong>Storage register clock (Latch Pin)<br>
-            <strong>OE:</strong>Output Enangle, Active Low<br>
-            <strong>DS:</strong>Serial Data Input<br>
-            <strong>Vcc:</strong>Positive Supply Voltage<br>
-        </details>
+        <strong>Q0 to Q7:</strong>Output Pins<br>
+        <strong>GND:</strong>Ground<br>
+        <strong>Q7':</strong>Serial Out<br>
+        <strong>MR:</strong>Master Clear, Active Low<br>
+        <strong>SH_CP:</strong>Shift Register Clock Pin<br>
+        <strong>ST_CP:</strong>Storage register clock (Latch Pin)<br>
+        <strong>OE:</strong>Output Enable, Active Low<br>
+        <strong>DS:</strong>Serial Data Input<br>
+        <strong>Vcc:</strong>Positive Supply Voltage<br>
+
+        <p>
+
+        </p>
+
+
 
         <footer>
             <a href="prototype.c">Prototype code</a>
