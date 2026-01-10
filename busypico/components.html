@@ -1,7 +1,7 @@
 <html>
 
     <head>
-        <title>Prototype</title>
+        <title>Components</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/styles.css">
@@ -9,7 +9,7 @@
 
     <body>
         <header>
-            <h1>Prototype</h1>
+            <h1>Components</h1>
         </header>
 
         <h3>Batteries</h3>
@@ -83,11 +83,18 @@
         </p>
         
         <h3>Potentiometer</h3>
+        <p>
+        The potentiometer selected is a panel mount varient with 10 k&#8486 reisistance. This along with the fitted red T18 soft touch knob will be used as player input.
+        </p>
+
         <h3>Button</h3>
+        <p>
+        A 16 mm burgundy panel mount momentary push button has been selected as the other player input.
+        </p>
 
         <h3>Pico</h3>
         <p>
-        The Raspberry Pi Pico is a microcontroller
+        The Raspberry Pi Pico is a microcontroller design for pysical computing projects like this. It will be coded in C/C++ for this project.
         </p>
 
         <figure>
@@ -95,10 +102,13 @@
         </figure>
 
         <p>
-        The serial out (Q7') is not required as it is used to "daisy chain" shift registers. 
+        The batteries will connect to the VSYS pin to power the pico itself and the connected components.<br>
+        The Pico 3V3(OUT) pin connects to the 74HC595 VCC pin, the SPIO SCK to the SER, the SPIO TX to the RCLK and the SPIO RX to the SRCLK<br>
+        The ADC0 connect to the central wiper of the potentiometer.<br>
+        Any PIO pin can be used for the pushbutton input.
         </p>
 
-
+        <hr>
 
         <footer>
             <nav>
