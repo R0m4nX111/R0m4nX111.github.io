@@ -1,7 +1,7 @@
 <html>
 
     <head>
-        <title>Components</title>
+        <title>Prototype</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/styles.css">
@@ -9,10 +9,28 @@
 
     <body>
         <header>
-            <h1>Components</h1>
+            <h1>Prototype</h1>
         </header>
 
-        <h3>Batteries</h3>
+        <h3>Schematic</h3>
+        <p>
+        The shematic for the test is
+        </p>
+
+        <figure>
+            <img src="schematic.png" style="border-radius: 10px; width: 600px; margin-left: auto; margin-right: auto; display: block;" alt="Schematic">
+        </figure>
+
+        <p>
+        <ul>
+            <li>The batteries will connect to the VSYS pin to power the pico itself and the connected components.</li>
+            <li>The Pico 3V3(OUT) pin connects to the 74HC595 VCC pin, the Pico SPIO SCK(Clock) connects to the 74HC595 SRCLK(Clock), the Pico SPIO TX(Data) connects to the 74HC595 SER(Serial Data Input) and the Pico SPIO CSn connects to the 74HC595 RCLK(Latch)</li>
+            <li>The ADC0 connect to the central wiper of the potentiometer.</li>
+            <li>Any PIO pin can be used for the pushbutton input.</li>
+        </ul>
+        </p>
+
+        <h3>ScheBatteries</h3>
         <p>
         The 2x AAA batteries are connected in series giving 3.0 V (2x 1.5 V) and a capacity of 1000 mAh. 
         </p>
@@ -88,23 +106,6 @@
         A 16 mm burgundy panel mount momentary push button has been selected as the other player input.
         </p>
 
-        <h3>Pico</h3>
-        <p>
-        The Raspberry Pi Pico is a microcontroller design for physical computing projects like this. It will be coded in C/C++ for this project.
-        </p>
-
-        <figure>
-            <img src="pico-pinout.svg" style="border-radius: 10px; width: 600px; margin-left: auto; margin-right: auto; display: block;" alt="Pico Pin Out Diagram">
-        </figure>
-
-        <p>
-        <ul>
-            <li>The batteries will connect to the VSYS pin to power the pico itself and the connected components.</li>
-            <li>The Pico 3V3(OUT) pin connects to the 74HC595 VCC pin, the Pico SPIO SCK(Clock) connects to the 74HC595 SRCLK(Clock), the Pico SPIO TX(Data) connects to the 74HC595 SER(Serial Data Input) and the Pico SPIO CSn connects to the 74HC595 RCLK(Latch)</li>
-            <li>The ADC0 connect to the central wiper of the potentiometer.</li>
-            <li>Any PIO pin can be used for the pushbutton input.</li>
-        </ul>
-        </p>
 
         <hr>
 
