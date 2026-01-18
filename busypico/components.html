@@ -32,18 +32,41 @@
                 <strong>QA to QH:</strong>Output Pins<br>
                 <strong>GND:</strong>Ground<br>
                 <strong>QH':</strong>Serial Out, to next register (not used)<br>
-                <strong>SRCLR:</strong>Shift Register Clear<br>
+                <strong>SRCLR:</strong>Shift Register Clear, active low<br>
                 <strong>SRCLK:</strong>Shift Register Clock<br>
                 <strong>RCLK:</strong>Storage Register Clock (Latch)<br>
-                <strong>OE:</strong>Output Enable, Active Low<br>
+                <strong>OE:</strong>Output Enable, active low<br>
                 <strong>SER:</strong>Serial Data Input<br>
                 <strong>Vcc:</strong>Positive Supply Voltage
             </figcaption>
         </figure>
+        <ul>
+            <li>The SER and SRCLK are used together to transmit the byte via SPI</li>
+            <li>The RCLK is used to 'save' the byte to the output pins</li>
+            <li>The SRCLR is used to erase the output pins values (The RCLK must still be toggled before the clear state is shown)</li>
+            <li>The OE is used to enable the output pins. It can be used with PWM to dim the LEDS</li>
+        </ul>
 
         <h3>Lights</h3>
         <p>
-        8x LEDs are arranged in a 2x4 grid. The rows will be red, orange, yellow, green. Given the 3.3 V regulated output voltage from the Pico the resistors will be per the table below.
+        8x LEDs are arranged in a 2x4 grid.<br>
+        </p>
+        <table class="compact">
+            <tr>
+                <td>[GREEN]</td>
+                <td>[YELLOW]</td>
+                <td>[YELLOW]</td>
+                <td>[YELLOW]</td>
+            </tr>
+            <tr>
+                <td>[RED]</td>
+                <td>[BLUE]</td>
+                <td>[BLUE]</td>
+                <td>[BLUE]</td>
+            </tr>
+        </table>
+        <p>
+        The green and red lights will indicate correct and incorrect and the yellow and blue will represent the computer and the player. Given the 3.3 V regulated output voltage from the Pico and the variation in percieved brigtness the resistors used were determined by trial and error..
         </p>
         <table class="compact">
             <tr>
@@ -53,28 +76,28 @@
                 <th>Resistor Value</th>
             </tr>
             <tr>
-                <td>Red</td>
-                <td>1.8 V</td>
-                <td>8 mA</td>
-                <td>180 &#8486;</td>
-            </tr>
-            <tr>
-                <td>Orange</td>
-                <td>2.0 V</td>
-                <td>7 mA</td>
-                <td>180 &#8486;</td>
+                <td>Green</td>
+                <td> V</td>
+                <td> mA</td>
+                <td> &#8486;</td>
             </tr>
             <tr>
                 <td>Yellow</td>
-                <td>2.1 V</td>
-                <td>8 mA</td>
-                <td>150 &#8486;</td>
+                <td> V</td>
+                <td> mA</td>
+                <td> &#8486;</td>
             </tr>
             <tr>
-                <td>Green</td>
-                <td>2.2 V</td>
-                <td>10 mA</td>
-                <td>100 &#8486;</td>
+                <td>Red</td>
+                <td> V</td>
+                <td> mA</td>
+                <td> &#8486;</td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td> V</td>
+                <td> mA</td>
+                <td> &#8486;</td>
             </tr>
         </table>
         
@@ -97,22 +120,27 @@
             <img src="pico-pinout.svg" style="border-radius: 10px; width: 600px; margin-left: auto; margin-right: auto; display: block;" alt="Pico Pin Out Diagram">
         </figure>
 
-        <p>
         <ul>
             <li>The batteries will connect to the VSYS pin to power the pico itself and the connected components.</li>
-            <li>The Pico 3V3(OUT) pin connects to the 74HC595 VCC pin, the Pico SPIO SCK(Clock) connects to the 74HC595 SRCLK(Clock), the Pico SPIO TX(Data) connects to the 74HC595 SER(Serial Data Input) and the Pico SPIO CSn connects to the 74HC595 RCLK(Latch)</li>
+            <li>The Pico to 74HC595 connections are:
+                <ul>
+                    <li>The Pico 3V3(OUT) pin connects to the 74HC595 VCC pin</li>
+                    <li>The Pico SPIO SCK(Clock) connects to the 74HC595 SRCLK(Clock)</li>
+                    <li>The Pico SPIO TX(Data) connects to the 74HC595 SER(Serial Data Input)</li>
+                    <li>The Pico SPIO CSn connects to the 74HC595 RCLK(Latch)</li>
+                </ul>
+            </li>
             <li>The ADC0 connect to the central wiper of the potentiometer.</li>
-            <li>Any PIO pin can be used for the pushbutton input.</li>
+            <li>Any GPIO pin can be used for the pushbutton input.</li>
         </ul>
-        </p>
 
         <hr>
 
         <footer>
             <nav>
             <a href="../index.html">Home</a> |
-            <a href="busypico.html">Back</a> |
-            <a href="prototype.c">Prototype code</a>
+            <a href="busypico.html">BusyPico</a> |
+            <a href="prototype.html">Next</a> 
             </nav>
         </footer>
     </body>
